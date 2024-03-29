@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 # Create your views here.
@@ -19,8 +19,22 @@ def dashboard(req):
 
 
 def details(req, id):
-    print(id)
-    if id == "1":
-        return render(req, "webpages/caseDetails1.html")
+    if id == 1:
+        return render(req, "webpages/caseInformation.html")
+    if id == 2:
+        return render(req, "webpages/quantitative.html")
+    if id == 3:
+        return render(req, "webpages/qualitative.html")
+    if id == 0:
+        return redirect("dashboard")
     else:
         return render(req, "webpages/signup.html")
+
+
+def schedule(req, id):
+    if id == 1:
+        return render(req, "webpages/schedule1.html")
+    if id == 2:
+        return render(req, "webpages/schedule2.html")
+    else:
+        return render(req, "webpages/schedule3.html")
